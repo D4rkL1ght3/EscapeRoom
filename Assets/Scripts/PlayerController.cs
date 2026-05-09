@@ -2,7 +2,12 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("Movement")]
     public float moveSpeed = 3f;
+
+    [Header("Map Bounds")]
+    public Vector2 minBounds;
+    public Vector2 maxBounds;
 
     private Rigidbody2D rb;
     private Animator animator;
@@ -43,5 +48,22 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         rb.linearVelocity = moveInput * moveSpeed;
+
+        // Clamp position inside map bounds
+        Vector2 clampedPosition = rb.position;
+
+        clampedPosition.x = Mathf.Clamp(
+            clampedPosition.x,
+            minBounds.x,
+            maxBounds.x
+        );
+
+        clampedPosition.y = Mathf.Clamp(
+            clampedPosition.y,
+            minBounds.y,
+            maxBounds.y
+        );
+
+        rb.position = clampedPosition;
     }
 }
