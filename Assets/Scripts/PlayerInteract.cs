@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using Unity.PlasticSCM.Editor.WebApi;
 
 public class PlayerInteract : MonoBehaviour
 {
@@ -16,11 +17,20 @@ public class PlayerInteract : MonoBehaviour
     void Update()
     {
         // Press E to interact
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && Time.timeScale != 0f)
         {
             if (currentInteractable != null)
             {
                 currentInteractable.Interact();
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape) && currentInteractable.isOpen)
+        {
+            // Close any open UI
+            if (currentInteractable != null)
+            {
+                currentInteractable.CloseUI();
             }
         }
     }

@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class Bookshelf : MonoBehaviour, Interactable
+public class Hint : MonoBehaviour, Interactable
 {
-    public GameObject puzzleUI;
+    public GameObject hintUI;
 
     private SpriteRenderer spriteRenderer;
 
@@ -21,7 +21,7 @@ public class Bookshelf : MonoBehaviour, Interactable
 
     public void Interact()
     {
-        puzzleUI.SetActive(true);
+        hintUI.SetActive(true);
         Time.timeScale = 0f;
         isOpen = true;
         PauseManager.Instance.IsInUI = true;
@@ -29,7 +29,7 @@ public class Bookshelf : MonoBehaviour, Interactable
 
     public void CloseUI()
     {
-        puzzleUI.SetActive(false);
+        hintUI.SetActive(false);
         Time.timeScale = 1f;
         isOpen = false;
         PauseManager.Instance.IsInUI = false;
