@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Bookshelf : MonoBehaviour, Interactable
+public class Puzzle : MonoBehaviour, Interactable
 {
     public GameObject puzzleUI;
 
