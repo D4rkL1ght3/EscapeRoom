@@ -9,9 +9,6 @@ public class BookshelfPuzzleManager : MonoBehaviour
 
     private List<int> playerSequence = new List<int>();
 
-    [Header("Bookshelf")]
-    public Animator bookshelfAnimator;
-
     [Header("UI")]
     public GameObject puzzleUI;
 
@@ -48,8 +45,6 @@ public class BookshelfPuzzleManager : MonoBehaviour
         solved = true;
 
         Debug.Log("Puzzle Solved!");
-
-        bookshelfAnimator.SetTrigger("Open");
 
         ClosePuzzleUI();
     }
