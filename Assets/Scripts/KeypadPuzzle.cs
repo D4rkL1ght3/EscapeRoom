@@ -13,11 +13,12 @@ public class KeypadPuzzle : MonoBehaviour
 
     public GameObject keypadUI;
 
-    [Header("Door")]
-    public Animator doorAnimator;
-
     [Header("Player")]
     public MonoBehaviour playerController;
+
+    [Header("Door Layers")]
+    public GameObject doorLayer1;
+    public GameObject doorLayer2;
 
     private bool solved = false;
 
@@ -66,7 +67,8 @@ public class KeypadPuzzle : MonoBehaviour
 
         Debug.Log("Door Unlocked!");
 
-        doorAnimator.SetTrigger("Open");
+        doorLayer1.SetActive(false);
+        doorLayer2.SetActive(true);
 
         CloseUI();
     }

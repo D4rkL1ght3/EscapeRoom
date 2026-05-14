@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 
-public class BookshelfPuzzleManager : MonoBehaviour
+public class BookshelfPuzzle : MonoBehaviour
 {
     [Header("Correct Sequence")]
     public int[] correctSequence;
@@ -12,13 +12,14 @@ public class BookshelfPuzzleManager : MonoBehaviour
     private bool solved = false;
 
     [Header("UI")]
-    public GameObject puzzleUI;
+    public GameObject bookshelfUI;
 
     [Header("Player")]
     public MonoBehaviour playerController;
 
     [Header("Transitions")]
     public SlidingBookshelf slidingBookshelf;
+    public AudioSource audioSource;
     public GameObject escapeDoor;
 
     public void PressBook(int bookID)
@@ -59,6 +60,9 @@ public class BookshelfPuzzleManager : MonoBehaviour
         if (escapeDoor != null)
             escapeDoor.SetActive(true);
 
+        if (audioSource != null)
+            audioSource.Play();
+
         ClosePuzzleUI();
     }
 
@@ -69,7 +73,7 @@ public class BookshelfPuzzleManager : MonoBehaviour
 
     public void ClosePuzzleUI()
     {
-        puzzleUI.SetActive(false);
+        bookshelfUI.SetActive(false);
         playerController.enabled = true;
     }
 }
