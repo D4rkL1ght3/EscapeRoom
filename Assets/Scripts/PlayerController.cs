@@ -66,4 +66,9 @@ public class PlayerController : MonoBehaviour
 
         rb.position = clampedPosition;
     }
+
+    void OnDisable()
+    {
+        rb.linearVelocity = Vector2.zero;
+    }
 }

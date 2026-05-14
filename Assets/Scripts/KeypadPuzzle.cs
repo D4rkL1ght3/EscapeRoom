@@ -79,7 +79,6 @@ public class KeypadPuzzle : MonoBehaviour
     public void CloseUI()
     {
         keypadUI.SetActive(false);
-
         playerController.enabled = true;
     }
 }

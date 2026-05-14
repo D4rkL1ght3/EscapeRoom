@@ -2940,8 +2940,8 @@ GameObject:
   m_Component:
   - component: {fileID: 778324471}
   - component: {fileID: 778324470}
-  - component: {fileID: 778324472}
   - component: {fileID: 778324473}
+  - component: {fileID: 778324474}
   m_Layer: 0
   m_Name: MathsBook
   m_TagString: Untagged
@@ -3023,20 +3023,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &778324472
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 778324469}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1e5b41427db2ab41ac332eeea7da511, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Hint
-  hintUI: {fileID: 137026126}
-  highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!61 &778324473
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3083,6 +3069,21 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 0.71875}
   m_EdgeRadius: 0
+--- !u!114 &778324474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 778324469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 025a9f94a4e891745ad0d8010bb3af15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteractableObject
+  objectUI: {fileID: 137026126}
+  highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  playerController: {fileID: 1635016441}
 --- !u!1 &834854411
 GameObject:
   m_ObjectHideFlags: 0
@@ -3506,8 +3507,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 025a9f94a4e891745ad0d8010bb3af15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Bookshelf
-  puzzleUI: {fileID: 834854411}
+  objectUI: {fileID: 834854411}
   highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  playerController: {fileID: 1635016441}
 --- !u!1 &861519188
 GameObject:
   m_ObjectHideFlags: 0
@@ -4706,8 +4708,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1357920447}
   - component: {fileID: 1357920446}
-  - component: {fileID: 1357920448}
   - component: {fileID: 1357920449}
+  - component: {fileID: 1357920450}
   m_Layer: 0
   m_Name: Calendar
   m_TagString: Untagged
@@ -4789,20 +4791,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1357920448
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1357920445}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1e5b41427db2ab41ac332eeea7da511, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Hint
-  hintUI: {fileID: 1655781251}
-  highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!61 &1357920449
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4849,6 +4837,21 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 0.78125}
   m_EdgeRadius: 0
+--- !u!114 &1357920450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357920445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 025a9f94a4e891745ad0d8010bb3af15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteractableObject
+  objectUI: {fileID: 1655781251}
+  highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  playerController: {fileID: 1635016441}
 --- !u!1 &1358315143
 GameObject:
   m_ObjectHideFlags: 0
@@ -7359,6 +7362,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BookshelfPuzzleManager
   correctSequence: 01000000020000000300000004000000
   puzzleUI: {fileID: 834854411}
+  playerController: {fileID: 1635016441}
 --- !u!1 &1988587612
 GameObject:
   m_ObjectHideFlags: 0

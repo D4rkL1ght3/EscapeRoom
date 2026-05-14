@@ -14,6 +14,9 @@ public class BookshelfPuzzleManager : MonoBehaviour
 
     private bool solved = false;
 
+    [Header("Player")]
+    public MonoBehaviour playerController;
+
     public void PressBook(int bookID)
     {
         if (solved)
@@ -57,7 +60,6 @@ public class BookshelfPuzzleManager : MonoBehaviour
     public void ClosePuzzleUI()
     {
         puzzleUI.SetActive(false);
-        Time.timeScale = 1f;
-        PauseManager.Instance.IsInUI = false;
+        playerController.enabled = true;
     }
 }

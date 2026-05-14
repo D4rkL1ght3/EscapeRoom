@@ -1,9 +1,11 @@
 using UnityEngine;
 
-public class Puzzle : MonoBehaviour, Interactable
+public class InteractableObject : MonoBehaviour, Interactable
 {
-    public GameObject puzzleUI;
+    [Header("UI")]
+    public GameObject objectUI;
 
+    [Header("Highlight")]
     private SpriteRenderer spriteRenderer;
 
     private Color originalColor;
@@ -11,6 +13,9 @@ public class Puzzle : MonoBehaviour, Interactable
     public Color highlightColor = Color.yellow;
 
     public bool isOpen { get; private set; }
+
+    [Header("Player")]
+    public MonoBehaviour playerController;
 
     void Start()
     {
@@ -21,18 +26,14 @@ public class Puzzle : MonoBehaviour, Interactable
 
     public void Interact()
     {
-        puzzleUI.SetActive(true);
-        Time.timeScale = 0f;
-        isOpen = true;
-        PauseManager.Instance.IsInUI = true;
+        objectUI.SetActive(true);
+        playerController.enabled = false;
     }
 
     public void CloseUI()
     {
-        puzzleUI.SetActive(false);
-        Time.timeScale = 1f;
-        isOpen = false;
-        PauseManager.Instance.IsInUI = false;
+        objectUI.SetActive(false);
+        playerController.enabled = true;
     }
 
     public void Highlight()

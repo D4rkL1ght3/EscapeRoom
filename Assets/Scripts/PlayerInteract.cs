@@ -28,9 +28,9 @@ public class PlayerInteract : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Backspace) && Time.timeScale != 0f)
         {
-            if (currentInteractable != null && currentInteractable.isOpen)
+            if (currentInteractable != null)
             {
                 currentInteractable.CloseUI();
             }

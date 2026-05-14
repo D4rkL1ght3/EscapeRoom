@@ -6,8 +6,6 @@ public class PauseManager : MonoBehaviour
 
     public GameObject pauseMenu;
 
-    public bool IsInUI;
-
     void Awake()
     {
         if (Instance == null)
@@ -22,7 +20,7 @@ public class PauseManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && !IsInUI)
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             TogglePause();
         }
