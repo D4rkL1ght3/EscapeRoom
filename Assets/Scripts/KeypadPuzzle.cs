@@ -20,6 +20,12 @@ public class KeypadPuzzle : MonoBehaviour
     public GameObject doorLayer1;
     public GameObject doorLayer2;
 
+    [Header("Audio")]
+    public AudioSource audioSource;
+    public AudioClip keypadPressSound;
+    public AudioClip correctSound;
+    public AudioClip wrongSound;
+
     private bool solved = false;
 
     void Start()
@@ -36,6 +42,8 @@ public class KeypadPuzzle : MonoBehaviour
             return;
 
         currentInput += digit;
+
+        audioSource.PlayOneShot(keypadPressSound);
 
         UpdateDisplay();
     }

@@ -19,8 +19,10 @@ public class BookshelfPuzzle : MonoBehaviour
 
     [Header("Transitions")]
     public SlidingBookshelf slidingBookshelf;
-    public AudioSource audioSource;
     public GameObject escapeDoor;
+
+    [Header("Audio")]
+    public AudioSource audioSource;
 
     public void PressBook(int bookID)
     {
