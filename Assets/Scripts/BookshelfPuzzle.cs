@@ -17,8 +17,9 @@ public class BookshelfPuzzleManager : MonoBehaviour
     [Header("Player")]
     public MonoBehaviour playerController;
 
-    [Header("Bookshelf")]
+    [Header("Transitions")]
     public SlidingBookshelf slidingBookshelf;
+    public GameObject escapeDoor;
 
     public void PressBook(int bookID)
     {
@@ -53,9 +54,10 @@ public class BookshelfPuzzleManager : MonoBehaviour
         Debug.Log("Puzzle Solved!");
 
         if (slidingBookshelf != null)
-        {
             slidingBookshelf.SlideOpen();
-        }
+
+        if (escapeDoor != null)
+            escapeDoor.SetActive(true);
 
         ClosePuzzleUI();
     }

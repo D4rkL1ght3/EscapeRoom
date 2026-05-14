@@ -3375,7 +3375,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &850302575
 SpriteRenderer:
   serializedVersion: 2
@@ -4731,7 +4731,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1272708985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7457,6 +7457,7 @@ MonoBehaviour:
   puzzleUI: {fileID: 834854411}
   playerController: {fileID: 1635016441}
   slidingBookshelf: {fileID: 850302579}
+  escapeDoor: {fileID: 1272708984}
 --- !u!1 &1988587612
 GameObject:
   m_ObjectHideFlags: 0
