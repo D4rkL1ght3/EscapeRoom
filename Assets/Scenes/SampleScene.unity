@@ -8691,8 +8691,8 @@ MonoBehaviour:
   doorLayer1: {fileID: 1272708984}
   doorLayer2: {fileID: 2122507181}
   audioSource: {fileID: 1272708989}
-  keypadPressSound: {fileID: 8300000, guid: ee89bae677440a54c910ace732ca25eb, type: 3}
-  correctSound: {fileID: 8300000, guid: ee89bae677440a54c910ace732ca25eb, type: 3}
+  keypadPressSound: {fileID: 8300000, guid: 1c925229210463f4f9d78d3173a1260c, type: 3}
+  correctSound: {fileID: 8300000, guid: 1c925229210463f4f9d78d3173a1260c, type: 3}
   wrongSound: {fileID: 0}
 --- !u!1 &1898294979
 GameObject:
