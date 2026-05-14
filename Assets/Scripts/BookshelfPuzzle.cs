@@ -9,13 +9,16 @@ public class BookshelfPuzzleManager : MonoBehaviour
 
     private List<int> playerSequence = new List<int>();
 
+    private bool solved = false;
+
     [Header("UI")]
     public GameObject puzzleUI;
 
-    private bool solved = false;
-
     [Header("Player")]
     public MonoBehaviour playerController;
+
+    [Header("Bookshelf")]
+    public SlidingBookshelf slidingBookshelf;
 
     public void PressBook(int bookID)
     {
@@ -48,6 +51,11 @@ public class BookshelfPuzzleManager : MonoBehaviour
         solved = true;
 
         Debug.Log("Puzzle Solved!");
+
+        if (slidingBookshelf != null)
+        {
+            slidingBookshelf.SlideOpen();
+        }
 
         ClosePuzzleUI();
     }
