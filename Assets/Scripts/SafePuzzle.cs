@@ -20,6 +20,7 @@ public class SafePuzzle : MonoBehaviour
 
     [Header("Player")]
     public MonoBehaviour playerController;
+    public CardReaderPuzzle cardReader;
 
     [Header("Audio")]
     public AudioSource audioSource;
@@ -76,6 +77,7 @@ public class SafePuzzle : MonoBehaviour
             Debug.Log("Wrong Code!");
 
             ClearInput();
+            TimerManager.Instance.DeductTime(10f);
         }
     }
 
@@ -89,6 +91,15 @@ public class SafePuzzle : MonoBehaviour
         keypadButton.SetActive(false);
         keycardButton.SetActive(true);
 
+        CloseUI();
+    }
+
+    public void TakeKeycard()
+    {
+        cardReader.hasKeycard = true;
+        Debug.Log("Keycard Get!");
+
+        keycardButton.SetActive(false);
         CloseUI();
     }
 

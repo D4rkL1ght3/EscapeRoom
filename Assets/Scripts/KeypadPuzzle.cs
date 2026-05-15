@@ -66,6 +66,7 @@ public class KeypadPuzzle : MonoBehaviour
             Debug.Log("Wrong Code!");
 
             ClearInput();
+            TimerManager.Instance.DeductTime(10f);
         }
     }
 

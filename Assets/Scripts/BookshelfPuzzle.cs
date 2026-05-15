@@ -44,6 +44,7 @@ public class BookshelfPuzzle : MonoBehaviour
             Debug.Log("Wrong order!");
 
             ResetPuzzle();
+            TimerManager.Instance.DeductTime(10f);
 
             return;
         }

@@ -3,15 +3,30 @@ using TMPro;
 
 public class TimerManager : MonoBehaviour
 {
+    public static TimerManager Instance;
+
     [Header("Timer Settings")]
     public float startingTime = 300f; // 5 minutes
     public bool timerRunning = true;
 
     [Header("UI")]
     public TMP_Text timerText;
+    public GameObject gameOverUI;
 
     private float currentTime;
     private bool timeEnded = false;
+
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     void Start()
     {
@@ -78,9 +93,13 @@ public class TimerManager : MonoBehaviour
 
         Debug.Log("Time's up!");
 
-        // Later you can put your game over UI here.
-        // Example:
-        // gameOverUI.SetActive(true);
-        // playerController.enabled = false;
+        gameOverUI.SetActive(true);
+        Time.timeScale = 0f; // Pause the game
+    }
+
+    public void BackToMainMenu()
+    {
+        Time.timeScale = 1f; // Reset time scale
+        UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
     }
 }
