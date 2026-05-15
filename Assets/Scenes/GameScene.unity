@@ -12231,7 +12231,7 @@ MonoBehaviour:
   keycardButton: {fileID: 1925550344}
   cardReaderUI: {fileID: 13465915}
   audioSource: {fileID: 1837960814}
-  doorOpenSound: {fileID: 0}
+  doorOpenSound: {fileID: 8300000, guid: 743b2e32b40b0f549a15affbc642becd, type: 3}
   playerController: {fileID: 1635016441}
   doorLayer2: {fileID: 2122507181}
   exitDoor: {fileID: 1552822113}
