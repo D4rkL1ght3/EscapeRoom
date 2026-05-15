@@ -12062,6 +12062,7 @@ MonoBehaviour:
   safeDoor: {fileID: 77727545}
   safeOpen: {fileID: -7264707085168687777, guid: fe188c0dc692d0d499479174d5d90b6d, type: 3}
   playerController: {fileID: 1635016441}
+  cardReader: {fileID: 0}
   audioSource: {fileID: 1675040284}
   keypadPressSound: {fileID: 8300000, guid: 1c925229210463f4f9d78d3173a1260c, type: 3}
   correctSound: {fileID: 8300000, guid: 743b2e32b40b0f549a15affbc642becd, type: 3}
@@ -12280,9 +12281,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1846867199}
-        m_TargetAssemblyTypeName: CardReaderPuzzle, Assembly-CSharp
-        m_MethodName: GiveKeycard
+      - m_Target: {fileID: 1846867200}
+        m_TargetAssemblyTypeName: SafePuzzle, Assembly-CSharp
+        m_MethodName: TakeKeycard
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
