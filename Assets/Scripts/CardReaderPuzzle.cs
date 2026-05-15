@@ -15,6 +15,11 @@ public class CardReaderPuzzle : MonoBehaviour
     [Header("Player")]
     public MonoBehaviour playerController;
 
+    [Header("Exit Door")]
+    public GameObject exitDoor;
+    public SpriteRenderer roomSprite;
+    public Sprite doorOpen;
+
     public bool hasKeycard = false;
 
     private bool opened = false;
@@ -39,6 +44,10 @@ public class CardReaderPuzzle : MonoBehaviour
 
         audioSource.Play();
 
+        roomSprite.sprite = doorOpen;
+        exitDoor.SetActive(true);
+        CloseUI();
+
         Debug.Log("Door Opened!");
     }
 
@@ -49,5 +58,11 @@ public class CardReaderPuzzle : MonoBehaviour
         keycardButton.SetActive(false);
 
         Debug.Log("Player got keycard!");
+    }
+
+    public void CloseUI()
+    {
+        cardReaderUI.SetActive(false);
+        playerController.enabled = true;
     }
 }
