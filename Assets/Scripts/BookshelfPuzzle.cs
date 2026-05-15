@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using System.Collections;
+using TMPro;
 using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 
@@ -26,10 +28,23 @@ public class BookshelfPuzzle : MonoBehaviour
     public AudioClip slidingSound;
     public AudioClip bookClickSound;
 
+    [Header("Puzzle Lock")]
+    public bool bookshelfUnlocked = false;
+    public GameObject hintPopup;
+
+    private Coroutine hintPopupCoroutine;
+
     public void PressBook(int bookID)
     {
         if (solved)
             return;
+
+        if (!bookshelfUnlocked)
+        {
+            ShowLockedHint();
+            TimerManager.Instance.DeductTime(5f);
+            return;
+        }
 
         playerSequence.Add(bookID);
         
@@ -77,6 +92,35 @@ public class BookshelfPuzzle : MonoBehaviour
     void ResetPuzzle()
     {
         playerSequence.Clear();
+    }
+
+    void ShowLockedHint()
+    {
+        if (hintPopupCoroutine != null)
+            StopCoroutine(hintPopupCoroutine);
+
+        hintPopupCoroutine = StartCoroutine(ShowHintPopup());
+
+        Debug.Log("Complete the math book puzzle first!");
+    }
+
+    public void UnlockBookshelfPuzzle()
+    {
+        bookshelfUnlocked = true;
+
+        Debug.Log("Bookshelf puzzle unlocked!");
+    }
+
+    IEnumerator ShowHintPopup()
+    {
+        if (hintPopup == null)
+            yield break;
+
+        hintPopup.SetActive(true);
+
+        yield return new WaitForSeconds(3f);
+
+        hintPopup.SetActive(false);
     }
 
     public void ClosePuzzleUI()
