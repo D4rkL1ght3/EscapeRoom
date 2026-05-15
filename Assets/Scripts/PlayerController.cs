@@ -11,14 +11,30 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D rb;
     private Animator animator;
+    private SpriteRenderer spriteRenderer;
 
     private Vector2 moveInput;
     private Vector2 lastMoveDirection;
+
+    [Header("Footstep Audio")]
+    public AudioSource footstepAudioSource;
+    public AudioClip footstepClip;
+    public float footstepInterval = 0.35f;
+
+    private float footstepTimer;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+
+        lastMoveDirection = Vector2.down;
+
+        if (footstepAudioSource == null)
+        {
+            footstepAudioSource = GetComponent<AudioSource>();
+        }
     }
 
     void Update()
@@ -37,6 +53,9 @@ public class PlayerController : MonoBehaviour
 
         // Send values to Animator
         animator.SetBool("isMoving", moveInput != Vector2.zero);
+
+        HandleSpriteFlip();
+        HandleFootsteps();
     }
 
     void FixedUpdate()
@@ -59,6 +78,43 @@ public class PlayerController : MonoBehaviour
         );
 
         rb.position = clampedPosition;
+    }
+
+    void HandleSpriteFlip()
+    {
+        if (spriteRenderer == null)
+            return;
+
+        if (moveInput.x > 0f)
+        {
+            spriteRenderer.flipX = false;
+        }
+        else if (moveInput.x < 0f)
+        {
+            spriteRenderer.flipX = true;
+        }
+    }
+
+    void HandleFootsteps()
+    {
+        if (footstepAudioSource == null || footstepClip == null)
+            return;
+
+        bool isMoving = moveInput != Vector2.zero;
+
+        if (!isMoving)
+        {
+            footstepTimer = 0f;
+            return;
+        }
+
+        footstepTimer -= Time.deltaTime;
+
+        if (footstepTimer <= 0f)
+        {
+            footstepAudioSource.PlayOneShot(footstepClip);
+            footstepTimer = footstepInterval;
+        }
     }
 
     void OnDisable()
