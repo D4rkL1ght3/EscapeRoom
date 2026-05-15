@@ -14,6 +14,7 @@ public class SafePuzzle : MonoBehaviour
     public GameObject safeUI;
     public GameObject keypadUI;
     public GameObject keypadButton;
+    public GameObject keycardButton;
     public Image safeDoor;
     public Sprite safeOpen;
 
@@ -86,6 +87,7 @@ public class SafePuzzle : MonoBehaviour
 
         safeDoor.sprite = safeOpen;
         keypadButton.SetActive(false);
+        keycardButton.SetActive(true);
 
         CloseUI();
     }

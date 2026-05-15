@@ -6,7 +6,7 @@ public class CardReaderPuzzle : MonoBehaviour
 {
     [Header("UI")]
     public TMP_Text hintText;
-
+    public GameObject keycardButton;
     public GameObject cardReaderUI;
 
     [Header("Audio")]
@@ -45,6 +45,8 @@ public class CardReaderPuzzle : MonoBehaviour
     public void GiveKeycard()
     {
         hasKeycard = true;
+
+        keycardButton.SetActive(false);
 
         Debug.Log("Player got keycard!");
     }
