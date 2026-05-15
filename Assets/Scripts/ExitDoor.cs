@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ExitDoor : MonoBehaviour, Interactable
 {
@@ -31,7 +32,9 @@ public class ExitDoor : MonoBehaviour, Interactable
 
     public void CloseUI()
     {
-        // This method is not needed for the exit door, but it's here to satisfy the Interactable interface
+        Time.timeScale = 1f; // Resume the game
+        Debug.Log("Returning to main menu...");
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void Highlight()

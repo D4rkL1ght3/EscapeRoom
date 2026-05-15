@@ -101,6 +101,7 @@ public class TimerManager : MonoBehaviour
     public void BackToMainMenu()
     {
         Time.timeScale = 1f; // Reset time scale
+        Debug.Log("Returning to main menu...");
         SceneManager.LoadScene("MainMenu");
     }
 }
