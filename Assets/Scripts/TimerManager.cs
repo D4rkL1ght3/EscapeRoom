@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class TimerManager : MonoBehaviour
@@ -100,6 +101,6 @@ public class TimerManager : MonoBehaviour
     public void BackToMainMenu()
     {
         Time.timeScale = 1f; // Reset time scale
-        UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("MainMenu");
     }
 }
