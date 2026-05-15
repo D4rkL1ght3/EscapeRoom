@@ -78,6 +78,7 @@ public class KeypadPuzzle : MonoBehaviour
 
         doorLayer1.SetActive(false);
         doorLayer2.SetActive(true);
+        audioSource.PlayOneShot(correctSound);
 
         CloseUI();
     }

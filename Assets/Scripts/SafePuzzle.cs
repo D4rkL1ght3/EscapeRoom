@@ -90,6 +90,7 @@ public class SafePuzzle : MonoBehaviour
         safeDoor.sprite = safeOpen;
         keypadButton.SetActive(false);
         keycardButton.SetActive(true);
+        audioSource.PlayOneShot(correctSound);
 
         CloseUI();
     }

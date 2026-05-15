@@ -11,6 +11,7 @@ public class CardReaderPuzzle : MonoBehaviour
 
     [Header("Audio")]
     public AudioSource audioSource;
+    public AudioClip doorOpenSound;
 
     [Header("Player")]
     public MonoBehaviour playerController;
@@ -43,11 +44,12 @@ public class CardReaderPuzzle : MonoBehaviour
     {
         opened = true;
 
-        audioSource.Play();
+        audioSource.PlayOneShot(doorOpenSound);
 
         roomSprite.sprite = doorOpen;
         doorLayer2.SetActive(false);
         exitDoor.SetActive(true);
+
         CloseUI();
 
         Debug.Log("Door Opened!");
