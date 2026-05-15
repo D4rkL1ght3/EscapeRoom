@@ -36,13 +36,7 @@ public class PlayerController : MonoBehaviour
         }
 
         // Send values to Animator
-        animator.SetFloat("MoveX", moveInput.x);
-        animator.SetFloat("MoveY", moveInput.y);
-
-        animator.SetFloat("LastMoveX", lastMoveDirection.x);
-        animator.SetFloat("LastMoveY", lastMoveDirection.y);
-
-        animator.SetBool("IsMoving", moveInput != Vector2.zero);
+        animator.SetBool("isMoving", moveInput != Vector2.zero);
     }
 
     void FixedUpdate()

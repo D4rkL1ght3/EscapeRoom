@@ -1,8 +1,9 @@
 using UnityEngine;
 
-public class InteractableObject : MonoBehaviour, Interactable
+public class SafeObject : MonoBehaviour, Interactable
 {
     [Header("UI")]
+    public SafePuzzle safePuzzle;
     public GameObject objectUI;
 
     [Header("Highlight")]
@@ -30,8 +31,7 @@ public class InteractableObject : MonoBehaviour, Interactable
 
     public void CloseUI()
     {
-        objectUI.SetActive(false);
-        playerController.enabled = true;
+        safePuzzle.CloseUI();
     }
 
     public void Highlight()

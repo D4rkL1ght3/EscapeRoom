@@ -7,6 +7,4 @@ public interface Interactable
     void Highlight();
 
     void RemoveHighlight();
-
-    bool isOpen { get; }
 }

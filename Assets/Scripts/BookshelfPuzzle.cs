@@ -23,6 +23,8 @@ public class BookshelfPuzzle : MonoBehaviour
 
     [Header("Audio")]
     public AudioSource audioSource;
+    public AudioClip slidingSound;
+    public AudioClip bookClickSound;
 
     public void PressBook(int bookID)
     {
@@ -30,6 +32,9 @@ public class BookshelfPuzzle : MonoBehaviour
             return;
 
         playerSequence.Add(bookID);
+        
+        if (audioSource != null && bookClickSound != null)
+            audioSource.PlayOneShot(bookClickSound);
 
         int currentIndex = playerSequence.Count - 1;
 
@@ -62,8 +67,8 @@ public class BookshelfPuzzle : MonoBehaviour
         if (escapeDoor != null)
             escapeDoor.SetActive(true);
 
-        if (audioSource != null)
-            audioSource.Play();
+        if (audioSource != null && slidingSound != null)
+            audioSource.PlayOneShot(slidingSound);
 
         ClosePuzzleUI();
     }
