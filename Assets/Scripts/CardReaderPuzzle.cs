@@ -1,11 +1,12 @@
 using UnityEngine;
+using System.Collections;
 using TMPro;
 
 
 public class CardReaderPuzzle : MonoBehaviour
 {
     [Header("UI")]
-    public TMP_Text hintText;
+    public GameObject hintPopup;
     public GameObject keycardButton;
     public GameObject cardReaderUI;
 
@@ -23,8 +24,9 @@ public class CardReaderPuzzle : MonoBehaviour
     public Sprite doorOpen;
 
     public bool hasKeycard = false;
-
     private bool opened = false;
+
+    private Coroutine hintPopupCoroutine;
 
     public void Interact()
     {
@@ -33,11 +35,28 @@ public class CardReaderPuzzle : MonoBehaviour
 
         if (!hasKeycard)
         {
+            if (hintPopupCoroutine != null)
+                StopCoroutine(hintPopupCoroutine);
+
+            hintPopupCoroutine = StartCoroutine(ShowHintPopup());
+
             Debug.Log("Door locked.");
             return;
         }
 
         OpenDoor();
+    }
+
+    IEnumerator ShowHintPopup()
+    {
+        if (hintPopup == null)
+            yield break;
+
+        hintPopup.SetActive(true);
+
+        yield return new WaitForSeconds(3f);
+
+        hintPopup.SetActive(false);
     }
 
     void OpenDoor()
