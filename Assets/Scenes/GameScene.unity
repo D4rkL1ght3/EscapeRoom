@@ -3529,7 +3529,7 @@ GameObject:
   - component: {fileID: 504718332}
   - component: {fileID: 504718334}
   m_Layer: 0
-  m_Name: Bookshelf Small_0 (1)
+  m_Name: Bookshelf Small (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10803,7 +10803,7 @@ GameObject:
   - component: {fileID: 1311929272}
   - component: {fileID: 1311929274}
   m_Layer: 0
-  m_Name: Bookshelf Small_0
+  m_Name: Bookshelf Small
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
