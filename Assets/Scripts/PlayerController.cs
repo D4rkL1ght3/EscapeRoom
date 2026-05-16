@@ -60,9 +60,29 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+        // Stop horizontal movement if trying to move outside the map
+        if (rb.position.x <= minBounds.x && moveInput.x < 0f)
+        {
+            moveInput.x = 0f;
+        }
+        else if (rb.position.x >= maxBounds.x && moveInput.x > 0f)
+        {
+            moveInput.x = 0f;
+        }
+
+        // Stop vertical movement if trying to move outside the map
+        if (rb.position.y <= minBounds.y && moveInput.y < 0f)
+        {
+            moveInput.y = 0f;
+        }
+        else if (rb.position.y >= maxBounds.y && moveInput.y > 0f)
+        {
+            moveInput.y = 0f;
+        }
+
         rb.linearVelocity = moveInput * moveSpeed;
 
-        // Clamp position inside map bounds
+        // Final safety clamp
         Vector2 clampedPosition = rb.position;
 
         clampedPosition.x = Mathf.Clamp(
