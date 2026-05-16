@@ -27,6 +27,27 @@ public class TimerManager : MonoBehaviour
     private float currentTime;
     private bool timeEnded = false;
 
+    public float CurrentTime
+    {
+        get { return currentTime; }
+    }
+
+    public float TimePercent
+    {
+        get
+        {
+            if (startingTime <= 0f)
+                return 0f;
+
+            return currentTime / startingTime;
+        }
+    }
+
+    public bool TimeEnded
+    {
+        get { return timeEnded; }
+    }
+
     private Coroutine penaltyPopupCoroutine;
     private Coroutine flashCoroutine;
 
